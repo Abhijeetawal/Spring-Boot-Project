@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+    .h1 {
+    
+    color: #400e02;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    } 
+    .singh {
+    border: 3px solid;
+    border-width: 3px;
+    border-color: navy blue;
+    padding:10px;
+    }
+    
+    #run {
+    text-align:center;
+    }
+ 
+    </style>
+
+
+
+ </style>
+ 
+<h1> Thanks for Ordering</h1>
+<body id = run>
+<div class=singh>
+<th:block th:each="lorder:${order}">
+<div th:text="${lorder.id}"> 1 </div>
+<div th:text="${lorder.size}"> Regular  </div>
+<div th:text="${lorder.coffeeType}"> black </div> 
+
+<div th:switch="${lorder.size}"> 
+<p th:case="Small"> <img src= "images/cup.jpg" style="width:150px;height:200px;"> </p>               
+<p th:case="Medium"> <img src="images/cup.jpg"style="width:200px;height:260px; "> </p>
+<p th:case="Large"> <img src="images/cup.jpg"style="width:230px;height:300px; "> </p>
+</div>
+<div th:switch="${lorder.coffeeType}">
+<p th:case="Regular"> 
+<img src= "images/plus.jpg">
+<img src= "images/cream.jpg"></p>
+
+
+<p th:case="Double"> <img src= >
+<img src= "images/plus.jpg">
+<img src= "images/cream.jpg">
+<img src= "images/cream.jpg">
+<img src= "images/plus.jpg">
+<img src= "images/sugar.jpg">
+<img src= "images/sugar.jpg"></p>
+
+
+
+<p th:case="Triple"> <img src=  >
+<img src= "images/plus.jpg">
+<img src= "images/cream.jpg">
+<img src= "images/cream.jpg">
+<img src= "images/cream.jpg">
+<img src= "images/plus.jpg">
+<img src= "images/sugar.jpg">
+<img src= "images/sugar.jpg">
+<img src= "images/sugar.jpg"></p>
+
+<p th:case="onesugar"> <img src= >
+<img src= "images/plus.jpg">
+<img src= "images/sugar.jpg"> </p>
+
+
+
+<p th:case="twosugar">
+<img src= "images/plus.jpg">
+<img src= "images/sugar.jpg"> 
+
+<img src= "images/sugar.jpg"> </p>
+
+<p th:case="threesugar"> 
+<img src= "images/plus.jpg">
+<img src= "images/sugar.jpg">
+<img src= "images/sugar.jpg">
+<img src= "images/sugar.jpg"> </p>
+<a th:href="@{/}"><button class="button">Order Again</button></a><br>
+</div>
+</th:block>
+</div>
+<form  method="post" action="#"   th:action="@{/listcofe}" th:object="${order}" >
+ <input type="submit" value="listcofee"><br>
+ <p> Price of Coffee $    <span th:text="${price}" >  </span> + tax = <span th:text="${totalp}"></span></p> </form>
+ 
+
+
+
+
+</body>
+</html>

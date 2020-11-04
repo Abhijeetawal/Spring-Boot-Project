@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+    .h1 {
+    
+    color: #400e02;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    } 
+    .abhi {
+    border: 3px solid;
+    border-width: 3px;
+    border-color: navy blue;
+    padding:10px;
+    }
+    
+    #header {
+    text-align:center;
+    }
+ 
+    </style>
+<body id="header">
+<form  method="post" action="#"   th:action="@{/ordercofee}" th:object="${coffelist}" >
+<img class = "center" src="images/logo.jpg" />
+<h1 >WELCOME TO TIM HORTON'S</h1>
+<div class="abhi">
+<br>
+<input   type="number" th:field="*{id}">
+     <select  th:field="*{size}">
+          <option th:each="p:*{sizes}" th:value="${p}" th:text="${p}">
+          </option></select><br>
+      <input type="radio" name="coffeeType" value="Regular">Regular<br>
+     <input type="radio" name="coffeeType" value="Double">Double Double<br>
+    <input  type="radio"name="coffeeType" value="Triple">Triple Triple<br>
+     <input type="radio"name="coffeeType" value="onesugar">Black One Sugar <br>
+         <input type="radio" name="coffeeType" value="twosugar">Black Two Sugar<br>
+     <input type="radio"name="coffeeType" value="threesugar">Black Three Sugar<br>
+     <input type="submit" value="Order Cofee"><br>
+     
+     </div>
+ 
+ </form>
+
+</body>
+</html>
